@@ -41,9 +41,27 @@ describe('Testing the List class', () => {
       popList.push(2);
       popList.push(3);
       popList.push(4);
-      console.log(popList);
 
       expect(popList.pop()).toBe(4);
+    });
+  });
+
+  describe('Testing the "slice" method of the List class', () => {
+    test('Slice should return a copy of the original array as an array from "begin" to "end" if entered.', () => {
+      let sliceList = new List();
+      sliceList.push(1);
+      sliceList.push(3);
+      sliceList.push(5);
+      sliceList.push(7);
+
+      expect(sliceList.slice()).toEqual([1,3,5,7]);
+      console.log(sliceList.slice());
+      // console.log(sliceList.slice(1).length);
+      // console.log([3,5,7].length);
+      // expect(sliceList.slice(1)).toEqual([3,5,7]);
+      // console.log(sliceList.slice(2,3).length);
+      // console.log([5].length);
+      expect(sliceList.slice(2,3)).toEqual([5]);
     });
   });
 });
