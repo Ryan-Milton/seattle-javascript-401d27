@@ -418,6 +418,19 @@ class List {
       }
     }
     return sliceArray;
+        console.log(i);
+        lastElement = this[this.length -1];
+        delete this[i];
+        console.log(lastElement);
+      }
+    }
+    console.log(this.length);
+    return lastElement;
+  }
+
+  slice(beg, end) {
+    // returns a new array based on the passed in value for the beggining and the end (if given)
+    // does not modify the original array
   }
 }
 
