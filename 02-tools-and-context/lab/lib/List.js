@@ -29,19 +29,31 @@ class List {
     let lastElement = 0;
     for(let i = 0; i <= this.length; i++) {
       if(i === this.length) {
-        console.log(i);
         lastElement = this[this.length -1];
         delete this[i];
-        console.log(lastElement);
       }
     }
-    console.log(this.length);
     return lastElement;
   }
 
-  slice(beg, end) {
+  slice(begin, end) {
     // returns a new array based on the passed in value for the beggining and the end (if given)
     // does not modify the original array
+
+    // +++++++ FIRST ATTEMPT ++++++++
+    let sliceArray = [];
+    for(let i = 0; i < this.length; i++) {
+      if(begin === undefined && end === undefined) {
+        sliceArray[i] = this[i];
+      }
+      if(Number.isInteger(begin) && end === undefined) {
+        sliceArray[i-1] = this[begin+i-1];
+      }
+      if(Number.isInteger(begin) && Number.isInteger(end)) {
+        sliceArray[i-end] = this[begin];
+      }
+    }
+    return sliceArray;
   }
 }
 
