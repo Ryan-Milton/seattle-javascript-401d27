@@ -1,5 +1,8 @@
 'use strict';
 
+// console.log('inside the filez');
+// console.log(process.argv);
+
 const fs = require('fs');
 
 class Bitmap{
@@ -16,18 +19,18 @@ class Bitmap{
   //transform creates a new file path 
   transform(callback) {
     transformDictionary[callback](this);
-    this.newFile = this.file.replace(/\.bmp/, `.${callback}.bmp`);
+    this.newFile = this.path.replace(/\.bmp/, `.${callback}.bmp`);
   }
 }
+
+const transformGreyscale = (bmp) => {
+  console.log('Transforming bitmap into greyscale.', bmp);
+};
 
 //an object containing different methods for transformation
 const transformDictionary = {
   //TODO: Make a greyscale transformation function in the future
-  greyscale: transformGreyscale
-};
-
-const transformGreyscale = (bmp) => {
-  console.log('Transforming bitmap into greyscale.', bmp);
+  greyscale: transformGreyscale,
 };
 
 function readFileAndTransform() {
