@@ -1,0 +1,20 @@
+{
+  "name": "lab",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose --coverage",
+    "watch": "jest --verbose --coverage --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ryan-Milton/seattle-javascript-401d27.git"
+  },
+  "author": "Ryan Milton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ryan-Milton/seattle-javascript-401d27/issues"
+  },
+  "homepage": "https://github.com/Ryan-Milton/seattle-javascript-401d27#readme"
+}
