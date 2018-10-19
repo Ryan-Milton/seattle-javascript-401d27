@@ -14,6 +14,7 @@ class Bitmap{
   //parse() is intended to parse on the type of the file
   parse(buffer) {
     this.type = buffer.toString('utf-8',0,2);
+    this.buffer = buffer;
   }
 
   //transform creates a new file path 
@@ -23,14 +24,20 @@ class Bitmap{
   }
 }
 
-const transformGreyscale = (bmp) => {
-  console.log('Transforming bitmap into greyscale.', bmp);
+const copyPaste = (bmp) => {
+  console.log('Copy Pasta! Hot and ready!.');
+};
+
+const overWrite = (bmp) => {
+  console.log('The pen is mighty!');
+  bmp.buffer.write('I\'m overwriting your file.');
 };
 
 //an object containing different methods for transformation
 const transformDictionary = {
   //TODO: Make a greyscale transformation function in the future
-  greyscale: transformGreyscale,
+  copy: copyPaste,
+  write: overWrite,
 };
 
 function readFileAndTransform() {
