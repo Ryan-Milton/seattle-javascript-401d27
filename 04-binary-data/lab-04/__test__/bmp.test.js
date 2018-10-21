@@ -3,6 +3,8 @@
 const Bitmap = require('../newIndex');
 
 describe('Starting the test of the Bitmap class', () => {
-  test('');
+  test('The OverWrite function overwrites the data?', () =>{
+    
+  });
 });
 
