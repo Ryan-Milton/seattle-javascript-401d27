@@ -53,3 +53,5 @@ const [file, callback] = process.argv.slice(2);
 let baldy = new Bitmap(file);
 
 readFileAndTransform();
+
+module.exports = Bitmap;
