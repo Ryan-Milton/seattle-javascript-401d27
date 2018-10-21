@@ -1,9 +1,9 @@
 'use strict';
 
-// console.log('inside the filez');
-// console.log(process.argv);
-
 const fs = require('fs');
+const copyModule = require('./lib/copyModule');
+const overcastModule = require('./lib/overcastModule');
+const overwriteModule = require('./lib/overwriteModule');
 
 class Bitmap{
   constructor(filePath) {
@@ -24,20 +24,11 @@ class Bitmap{
   }
 }
 
-const copyPaste = (bmp) => {
-  console.log('Copy Pasta! Hot and ready!.');
-};
-
-const overWrite = (bmp) => {
-  console.log('The pen is mighty!');
-  bmp.buffer.write('I\'m overwriting your file.');
-};
-
 //an object containing different methods for transformation
 const transformDictionary = {
-  //TODO: Make a greyscale transformation function in the future
-  copy: copyPaste,
-  write: overWrite,
+  copy: copyModule,
+  write: overwriteModule,
+  seattle: overcastModule,
 };
 
 function readFileAndTransform() {
@@ -62,3 +53,5 @@ const [file, callback] = process.argv.slice(2);
 let baldy = new Bitmap(file);
 
 readFileAndTransform();
+
+module.exports = Bitmap;
