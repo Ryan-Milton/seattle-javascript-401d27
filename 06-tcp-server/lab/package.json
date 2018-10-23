@@ -1,0 +1,15 @@
+{
+  "name": "chat-room",
+  "version": "1.0.0",
+  "description": "a tcp chat room",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose --coverage",
+    "watch": "jest --verbose --coverage --watchAll"
+  },
+  "author": "Ryan Milton",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
+}
