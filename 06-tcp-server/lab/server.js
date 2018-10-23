@@ -42,7 +42,7 @@ ee.on('@all', (client, message) => {
 ee.on('@nickname', (client, newNickname) => {
   let nickname = newNickname.split(' ').shift().trim();
   client.nickname = nickname;
-  client.socket.write(`Your nickname has been changed to ${nickname}\n`);
+  client.socket.write(`From this moment on, you shall be known as ${nickname}\n`);
 });
 
 ee.on('@list', (client) => {
@@ -52,18 +52,26 @@ ee.on('@list', (client) => {
 });
 
 ee.on('@dm', (client, message) => {
+  let target = userPool.findIndex( (user) => {
+    return user.nickname === message.split(' ').shift().trim();
+  });
+  console.log(target);
   userPool.forEach( user => {
-    if(message === user.nickname) {
-      user.socket.write(`${message}\n`);
-    } else {
-      console.log(message.split(' ').slice(1).toString());
-      // console.log(user.nickname);
-      client.socket.write(`This user does not exist\n`);
+    if(message.split(' ').shift().trim() === user.nickname) {
+      user.socket.write(`${client.nickname} says: ${message.toString().split(' ').splice(1).join(' ')}`);
+      console.log(target);
     }
   });
+  if(target === -1) client.socket.write(`This user does not exist. Please enter a user to contact. If you are unsure of which user's are online you can use the @list command to find out.`);
+  // console.log('userPool', userPool);
 });
 
 ee.on('@quit', (client) => {
+  console.log(client.nickname);
+  let index = userPool.findIndex( (user) => {
+    return user.nickname === client.nickname;
+  });
+  userPool.splice(index, 1);
   client.socket.end();
 });
 
