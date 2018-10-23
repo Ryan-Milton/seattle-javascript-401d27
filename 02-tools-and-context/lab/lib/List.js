@@ -54,7 +54,6 @@ class List {
       }
     }
     return sliceArray;
-<<<<<<< HEAD
         console.log(i);
         lastElement = this[this.length -1];
         delete this[i];
@@ -81,8 +80,6 @@ class List {
       }
     }
     return sliceArray;
-=======
->>>>>>> 3d10d6f11d1b2c19e9769f5ada181f0b27f684fa
   }
 }
 
