@@ -3,8 +3,8 @@
 const reader = require('./../lib/reader.js');
 
 describe('A function called "reader" will take in an array of file paths and and resolve the array as strings from those files from the array in the order that they are passed in.', () => {
-  const pathwayOne = ['./../data/moe.txt', './../data/meenie.txt', './../data/eenie.txt'];
-  const pathwayTwo = ['./../data/meenie.txt', './../data/moe.txt', './../data/eenie.txt'];
+  const pathwayOne = ['../data/mpe.txt', '../data/meenie.txt', '../data/eenie.txt'];
+  const pathwayTwo = ['../data/meenie.txt', '../data/moe.txt', '../data/eenie.txt'];
   const contentsOfPathwayOne = [];
 
   describe('The reader function must return the contents of the file paths in the order that they are passed in.', () => {
