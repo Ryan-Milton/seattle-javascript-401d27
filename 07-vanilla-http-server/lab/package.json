@@ -1,0 +1,17 @@
+{
+  "name": "vanill-http-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node index.js"
+  },
+  "author": "Ryan Milton",
+  "license": "MIT",
+  "devDependencies": {
+    "cowsay": "^1.3.1",
+    "dotenv": "^6.1.0",
+    "jest": "^23.6.0"
+  }
+}
