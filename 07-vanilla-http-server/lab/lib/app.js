@@ -4,6 +4,8 @@ const http = require('http');
 
 const parser = require('./parser.js');
 
+const cowsay = require('cowsay');
+
 const requestHandler = (request, response) => {
   console.log(`${request.method} ${request.url}`);
 
@@ -37,6 +39,21 @@ const requestHandler = (request, response) => {
 
       else if( request.method === 'GET' && request.parsed.pathname === '/cowsay') {
         
+        response.write(`<!DOCTYPE html>
+       <html>
+         <head>
+           <title> cowsay </title>  
+         </head>
+         <body>
+           <h1> cowsay </h1>
+           <pre>
+             ${cowsay.say({text: request.query.text, f: 'dragon'})}
+           </pre>
+         </body>
+       </html>`);
+
+        response.end();
+        return;
       }
 
       else if(request.method === 'POST' && request.parsed.pathname == '/data') {
@@ -46,6 +63,15 @@ const requestHandler = (request, response) => {
         response.write(JSON.stringify(request.body));
         response.end();
         return;
+      }
+
+      else if(request.method === 'POST' && request.parsed.pathname === '/api/cowsay') {
+
+        let cowSaid = cowsay.say({text: request.body.text});
+
+        response.write(JSON.stringify({content: cowSaid}));
+
+        response.end();
       }
 
       else {
