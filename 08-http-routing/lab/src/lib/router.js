@@ -15,7 +15,7 @@ methods.forEach( (method) => {
     router.routes[method][path] = callback;
   };
 });
-
+console.log(router);
 router.route = (request, response) => {
   console.log(`${request.method} ${request.url}`);
 
