@@ -36,10 +36,12 @@ module.exports = {
       app.listen(port, (err) => {
         if(err) { throw err; }
         isRunning = true;
+        console.log('Server is up on port', port);
         debug('Server is up on port', port);
       });
     }
     else {
+      console.log('Server is already running');
       debug('Server is already running');
     }
   },
