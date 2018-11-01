@@ -16,6 +16,7 @@ let sendJSON = (data, response) => {
 };
 
 router.get('api/v1/notes', (request, response, next) => {
+  console.log(criteria);
   const criteria = {key: '???'};
   notes.find(criteria)
     .then( data => {
@@ -32,6 +33,8 @@ router.get('api/v1/notes/:id', (request,  response, next) => {
 });
 
 router.post('api/v1/notes', (request, response, next) => {
+  console.log('request', request);
+  console.log('response', response);
   const body = '???';
   notes.create(body)
     .then( result => sendJSON(result, response) )
