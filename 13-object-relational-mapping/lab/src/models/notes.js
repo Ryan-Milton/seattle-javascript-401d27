@@ -1,35 +1,10 @@
-// 'use strict';
+'use strict';
 
-// import uuid from 'uuid/v1';
+import mongoose from 'mongoose';
 
-// class Note{
-//   constructor(config) {
-//     this.id = uuid();
-//     this.createdOn = new Date();
-//     this.title = config && config.title || '';
-//     this.content = config && config.content || '';
-//   }
+const schema = mongoose.Schema({
+  title: { type:String, required:true },
+  content: String,
+});
 
-//   save() {
-//     return storage.save(this);
-//   }
-
-//   static fetchAll() {
-//     return storage.getAll();
-//   }
-
-//   static findOne(id) {
-//     return storage.get(id);
-//   }
-
-//   static updateOne(criteria) {
-//     return storage.update(this);
-//   }
-
-//   static deleteOne(id) {
-//     return storage.delete(id);
-//   }
-
-// }
-
-// export default Note;
+export default mongoose.model('notes', schema);

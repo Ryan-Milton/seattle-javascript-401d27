@@ -15,47 +15,51 @@ let sendJSON = (data, response) => {
   response.end();
 };
 
-router.get('api/v1/notes', (request, response, next) => {
-  console.log(criteria);
-  const criteria = {key: '???'};
-  notes.find(criteria)
-    .then( data => {
-      const output = {key: '???'};
-      sendJSON(output, response);
-    })
-    .catch( next );
-});
-
-router.get('api/v1/notes/:id', (request,  response, next) => {
+router.get('/api/v1/notes', (request,  response, next) => {
   notes.find()
     .then( result => sendJSON(result, response) )
     .catch( next );
 });
 
-router.post('api/v1/notes', (request, response, next) => {
-  console.log('request', request);
-  console.log('response', response);
-  const body = '???';
+router.get('/api/v1/notes/:id', (request,  response, next) => {
+  notes.findById(request.params.id)
+    .then( result => sendJSON(result, response) )
+    .catch( next );
+});
+
+// router.get('/api/v1/notes', (request, response, next) => {
+//   console.log(response);
+//   const criteria = {key: '???'};
+//   notes.find(criteria)
+//     .then( data => {
+//       const output = {key: '???'};
+//       sendJSON(output, response);
+//     })
+//     .catch( next );
+// });
+
+router.post('/api/v1/notes', (request, response, next) => {
+  const body = request.body;
   notes.create(body)
     .then( result => sendJSON(result, response) )
     .catch( next );
 });
 
-router.put('api/v1/notes/:id', (request, response, next) => {
-  request.body._id = '???';
-  notes.findByIdAndUpdate(request.params.id, request.body)
+router.put('/api/v1/notes/:id', (request, response, next) => {
+  request.body._id = request.params.id;
+  notes.findByIdAndUpdate( request.params.id, request.body )
     .then( result => sendJSON(result, response) )
     .catch( next );
 });
 
 router.patch('/api/v1/notes/:id', (request, response, next) => {
-  notes.findByIdAndUpdate('???', '???')
+  notes.findByIdAndUpdate( request.params.id, request.body )
     .then( result => sendJSON(result, response) )
     .catch( next);
 });
 
 router.delete('/api/v1/notes/:id', (request, response, next) => {
-  notes.findByIdAndUpdate('???')
+  notes.findByIdAndDelete(request.params.id, request.body)
     .then( result => sendJSON(result, response) )
     .catch(next);
 });
