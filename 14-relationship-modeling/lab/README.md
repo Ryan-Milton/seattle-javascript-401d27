@@ -16,11 +16,18 @@
 * "supertest": "^3.3.0"
 
 ## Summary
-This is a way to interact with an express server and store data made with the POST method into a Mongo Database for a model refering to many other models. You can also alter it with the PUT method and DELETE methods and retrieve with the GET method.
+This is a lab to connect one "collection" in a database and be able to point it to another "collection" in the same database.
 
-### Problems
-* Current
-  * I am unable to use any of the methods and I'm not sure why. I was trying to console log some data in the basic GET method but when I entered in the request url into postman or tried using HTTPie i would recieve a 404 error. I'm not too sure why but that's where I got.
-
-* Previous
-  * Make sure you are on the correct PORT or you will throw an error.
+### Testing
+* The first set of tests
+  * Using promise handling
+    * Tests that the note and notebook are related
+    * Tests the note is related to the notebook by populating the notebook reference inside the note.
+* The second set of tests
+  * Using async/await
+    * Tests a notebook is created
+    * Tests a notebook is created via populate()
+    * Tests the creation of a note (no reference)
+    * Tests the relation between a note and notebook
+    with populate()
+    * Tests the relation between many notes and one notebook with populate()
