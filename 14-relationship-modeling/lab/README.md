@@ -1,4 +1,4 @@
-# Object Relational Mapping
+# Relationship Modeling
 
 ## Dependencies Required
 * "babel-env": "^2.4.1",
@@ -16,7 +16,7 @@
 * "supertest": "^3.3.0"
 
 ## Summary
-This is a way to interact with an express server and store data made with the POST method into a Mongo Database. You can also alter it with the PUT method and DELETE methods and retrieve with the GET method.
+This is a way to interact with an express server and store data made with the POST method into a Mongo Database for a model refering to many other models. You can also alter it with the PUT method and DELETE methods and retrieve with the GET method.
 
 ### Problems
 * Current
