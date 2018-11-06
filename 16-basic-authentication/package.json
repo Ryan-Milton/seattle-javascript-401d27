@@ -1,10 +1,10 @@
 {
-  "name": "lab",
+  "name": "16-basic-authentication",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --verbose --coverage"
+    "test": "jest"
   },
   "author": "Ryan Milton",
   "license": "MIT",
@@ -12,15 +12,19 @@
     "babel-env": "^2.4.1",
     "babel-eslint": "^10.0.1",
     "babel-register": "^6.26.0",
-    "cors": "^2.8.4",
+    "bcrypt": "^3.0.2",
+    "cors": "^2.8.5",
     "dotenv": "^6.1.0",
     "express": "^4.16.4",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.3.9"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.6.0",
+    "eslint": "^5.8.0",
     "jest": "^23.6.0",
-    "mongodb": "^3.1.8",
-    "mongodb-memory-server": "^2.6.2",
-    "mongoose": "^5.3.8",
-    "require-dir": "^1.1.0",
-    "superagent": "^4.0.0-beta.5",
+    "mongodb-memory-server": "^2.7.0",
     "supertest": "^3.3.0"
   }
 }
