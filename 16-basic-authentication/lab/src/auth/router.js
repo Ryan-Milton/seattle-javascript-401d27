@@ -35,16 +35,29 @@ import auth from './middleware.js';
 
 const router = express.Router();
 
-router.get('/signin', auth, (request, response) => {
-  response.send('where can the token be?');
+let sendJSON = (data, response) => {
+  response.statusCode = 200;
+  response.statusMessage = 'OK';
+  response.setHeader('Content-Type', 'application/json');
+  response.write( JSON.stringify(data) );
+  response.end();
+};
+
+router.get('/signin', auth, (request, response, next) => {
+  console.log('in the get');
+  User.find()
+    .then( result => sendJSON(result, response) )
+    .catch(next);
+  response.send(auth);
 });
 
 router.post('/signup', async (request, response) => {
 
   try {
-
+    const body = request.body;
     // create the user with posted info
-
+    User.create(body)
+      .then( result => sendJSON(result, response) );
     // make a token unique to the user
     
     // respond with the token
